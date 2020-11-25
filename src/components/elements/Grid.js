@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { StyledGrid, StyledGridContent } from '../styels/StyledGrid';
+import { StyledGrid, StyledGridContent } from '../styles/StyledGrid';
 
 const Grid = ({ header, children }) => (
   <StyledGrid>

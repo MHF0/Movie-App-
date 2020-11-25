@@ -6,7 +6,7 @@ import Home from './Home';
 import Movie from './Movie';
 import NotFound from './NotFound';
 
-import { GlobalStyle } from './styels/GlobalStyle';
+import { GlobalStyle } from './styles/GlobalStyle';
 
 const App = () => (
   <>

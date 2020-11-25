@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { 
   StyledSearchBar,
   StyledSearchBarContent 
-} from '../styels/StyledSearchBar';
+} from '../styles/StyledSearchBar';
 
 const SearchBar = ({ callback }) => {
   const [state, setState] = useState('');

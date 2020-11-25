@@ -18,7 +18,7 @@ import Spinner from './elements/Spinner';
 // Custom Hook
 import { useHomeFetch } from './hooks/useHomeFetch';
 
-import NoImage from './image/no_image.jpg';
+import NoImage from './images/no_image.jpg';
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState('');

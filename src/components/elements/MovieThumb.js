@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from '@reach/router';
 import PropTypes from 'prop-types';
 
-import { StyledMovieThumb } from '../styels/StyledMovieThumb';
+import { StyledMovieThumb } from '../styles/StyledMovieThumb';
 
 const MovieThumb = ({ image, movieId, clickable }) => (
   <StyledMovieThumb>

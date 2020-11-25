@@ -1,9 +1,9 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
 import PropTypes from 'prop-types';
-import { calcTime, convertMoney } from '../../components/helpUsers';
+import { calcTime, convertMoney } from '../../helpers';
 
-import { StyledMovieInfoBar } from '../styels/StyledMovieInfoBar';
+import { StyledMovieInfoBar } from '../styles/StyledMovieInfoBar';
 
 const MovieInfoBar = ({ time, budget, revenue }) => (
   <StyledMovieInfoBar>

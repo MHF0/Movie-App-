@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyledSpinner } from '../styels/StyledSpinner';
+import { StyledSpinner } from '../styles/StyledSpinner';
 
 const Spinner = () =><StyledSpinner />
 
