@@ -6,7 +6,7 @@ import RMDBLogo from '../image/reactMovie_logo.png';
 
 import { 
     StyledHeader, 
-    StyledRMDBLogo,
+    StyledRMDBLogo, 
 } from '../styels/StyledHeader';
 
 const Header = () => (
