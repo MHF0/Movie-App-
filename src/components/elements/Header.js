@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from '@reach/router';
 import { IconButton } from '@material-ui/core';
 
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import RMDBLogo from '../images/reactMovie_logo.png';
 
 
@@ -22,9 +21,7 @@ const Header = () => (
       <Link to='/favorite'>
         <IconButton style={{ color: 'white', width: "122px", float: "right" }}>
           My Favorite
-        <FavoriteIcon style={{ fontSize: 50, color: 'white' }} >
-
-          </FavoriteIcon>
+        
         </IconButton>
       </Link>
 
