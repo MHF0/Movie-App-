@@ -10,7 +10,23 @@ import MovieThumb from './MovieThumb';
 
 import { StyledMovieInfo } from '../styles/StyledMovieInfo';
 
+const favoriteiteam = JSON.parse(localStorage.getItem('favorite') || '[]');
+
 function MovieInfo({ movie }) {
+
+  const favoriteAdd = (movie) => {
+		const dofoveriteAdd = favoriteiteam.find((item) => {
+			return item.id === movie.id;
+		});
+		if (!dofoveriteAdd) {
+			favoriteiteam.push(movie);
+			localStorage.setItem('favorite', JSON.stringify(favoriteiteam));
+			alert('Check your favorite list');
+		} else {
+			alert('You Have The movie ');
+		}
+	};
+
   return (
     <StyledMovieInfo backdrop={movie.backdrop_path}>
       <div className="movieinfo-content">
@@ -41,16 +57,8 @@ function MovieInfo({ movie }) {
                 <p key={element.credit_id}>{element.name}</p>
               ))}
              
-              {/* <div>
-                <IconButton onClick={addMovieToFavorite(movie)} style={{ color: 'white', float: "right" }}>
-                  Add to My Favorite
-                
-
-                </IconButton>
-              </div> */}
-              {/* {console.log("momo")} */}
             </div>
-            <IconButton  style={{ color: 'white', float: "right" }}>
+            <IconButton onClick={()=>favoriteAdd(movie)} style={{ color: 'white', float: "right" }}>
                   Add to My Favorite
                 
 
