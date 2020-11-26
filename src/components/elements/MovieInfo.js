@@ -1,18 +1,16 @@
-import React, { useContext } from 'react';
+import React  from 'react';
 import PropTypes from 'prop-types';
 import { IconButton } from '@material-ui/core';
 
 
 import NoImage from '../images/no_image.jpg';
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../../config';
-import { GlobalContext } from '../context/GlobalState';
 
 import MovieThumb from './MovieThumb';
 
 import { StyledMovieInfo } from '../styles/StyledMovieInfo';
 
-const MovieInfo = ({ movie }) => {
-  const  moveToFavorite = useContext(GlobalContext);
+function MovieInfo({ movie }) {
   return (
     <StyledMovieInfo backdrop={movie.backdrop_path}>
       <div className="movieinfo-content">
@@ -42,11 +40,21 @@ const MovieInfo = ({ movie }) => {
               {movie.directors.map(element => (
                 <p key={element.credit_id}>{element.name}</p>
               ))}
-              <IconButton onClick={() => moveToFavorite(movie)} style={{ color: 'white', float: "right" }}>
-                Add to My Favorite
+             
+              {/* <div>
+                <IconButton onClick={addMovieToFavorite(movie)} style={{ color: 'white', float: "right" }}>
+                  Add to My Favorite
                 
-              </IconButton>
+
+                </IconButton>
+              </div> */}
+              {/* {console.log("momo")} */}
             </div>
+            <IconButton  style={{ color: 'white', float: "right" }}>
+                  Add to My Favorite
+                
+
+                </IconButton>
           </div>
         </div>
       </div>

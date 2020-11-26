@@ -9,16 +9,20 @@ import Favorite from './Favorite';
 
 import { GlobalStyle } from './styles/GlobalStyle';
 
+
+
 const App = () => (
   <>
+
     <Header />
     <Router>
       <Home path="/" />
       <Movie path="/:movieId" />
-      <Favorite path="/favorite"/>
-      <NotFound default />      
+      <Favorite path="/favorite" />
+      <NotFound default />
     </Router>
     <GlobalStyle />
+
   </>
 )
 
