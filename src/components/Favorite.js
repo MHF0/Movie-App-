@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { StyledMovieThumb } from './styles/StyledMovieThumb';
+import { StyledFavorite } from '../components/styles/StyledFavorite';
 
-const Favorite = ({image}) => {
+
+const Favorite = () => {
     const favoriteList = JSON.parse(localStorage.getItem('favorite'));
     const remove = (movie) => {
         const sliceMovie = favoriteList.find((item) => item.id === movie.id);
@@ -19,23 +20,23 @@ const Favorite = ({image}) => {
             {JSON.parse(localStorage.getItem('favorite')).map((item) => (
                 <div key={item.id}>
                     <div >
-                        <StyledMovieThumb>
-                            <img  src={`https://image.tmdb.org/t/p/${item.image}`} alt={item.title} />
-                            
-                        </StyledMovieThumb>
+                        <StyledFavorite>
+                            <img src={`https://image.tmdb.org/t/p/w185/${item.poster_path}`} alt={item.title} />
+                            <div>
+                                <button
+                                    onClick={() => remove(item)}
+                                > Remove from the Favorite
+							</button>
+                            </div>
+                        </StyledFavorite>
                     </div>
                     <div >
-                        <div>
-                            <button
-                                onClick={() => remove(item)}
-                            > Remove from the Favorite
-							</button>
-                        </div>
+
                     </div>
                 </div>
             ))}
-            </div>
-        
+        </div>
+
     );
 };
 Favorite.propTypes = {
