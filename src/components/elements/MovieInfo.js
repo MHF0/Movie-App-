@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
+import { confirmAlert } from 'react-confirm-alert'; 
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 import NoImage from '../images/no_image.jpg';
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../../config';
@@ -23,10 +25,21 @@ function MovieInfo({ movie }) {
     if (!dofoveriteAdd) {
       favoriteiteam.push(movie);
       localStorage.setItem('favorite', JSON.stringify(favoriteiteam));
-      alert('Check your favorite list');
-    } else {
-      alert('You Have The movie ');
-    }
+      confirmAlert({
+        title: 'Add to Favorite',
+        message: 'Are you sure you want to add this movie ?',
+        buttons: [
+          {
+            label: 'Yes',
+            onClick: () => ('Click Yes')
+          },
+          {
+            label: 'No',
+            onClick: () => ('Click No')
+          }
+        ]
+      })
+    } 
   };
 
   return (
@@ -60,9 +73,9 @@ function MovieInfo({ movie }) {
               ))}
 
             </div>
-            <BottomNavigationAction 
-            icon={<FavoriteBorderIcon onClick={() => favoriteAdd(movie)} 
-            style={{ fontSize: 50, color: 'white' }} />}/>
+            <BottomNavigationAction
+              icon={<FavoriteBorderIcon onClick={() => favoriteAdd(movie)}
+                style={{ fontSize: 50, color: 'white' }} />} />
 
           </div>
         </div>
