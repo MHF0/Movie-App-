@@ -1,11 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledFavorite = styled.div`
-.favoritebutton{
-    fontSize: 50;
-    color: 'black';
-    width: "100%";
-  }
 .favoritelist{
   display: flex;
   flex-wrap:wrap;

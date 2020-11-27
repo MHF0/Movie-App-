@@ -1,9 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-
-
+import { Link } from '@reach/router';
 
 import { StyledFavorite } from '../components/styles/StyledFavorite';
 
@@ -28,7 +26,10 @@ const Favorite = () => {
                         <div >
 
                             <div >
-                                <img src={`https://image.tmdb.org/t/p/w185/${item.poster_path}`} alt={item.title} />
+                                <Link to={`/${item.id}`}>
+
+                                    <img src={`https://image.tmdb.org/t/p/w185/${item.poster_path}`} alt={item.title} />
+                                </Link>
                                 <div >
                                     <BottomNavigationAction onClick={() => remove(item)}
                                         icon={<DeleteForeverIcon style={{ fontSize: 50, color: 'black', width: "100%" }} />} />
@@ -46,10 +47,5 @@ const Favorite = () => {
         </StyledFavorite>
     );
 };
-Favorite.propTypes = {
-    image: PropTypes.string,
-    movieId: PropTypes.number,
-    clickable: PropTypes.bool,
-}
 
 export default Favorite;

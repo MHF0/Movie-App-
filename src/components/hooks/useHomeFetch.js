@@ -31,7 +31,6 @@ export const useHomeFetch = searchTerm => {
     setLoading(false);
   };
 
-  // Fetch popular movies initially on mount
   useEffect(() => {
     if (sessionStorage.homeState) {
       setState(JSON.parse(sessionStorage.homeState));

@@ -11,7 +11,6 @@ import NoImage from '../images/no_image.jpg';
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../../config';
 
 import MovieThumb from './MovieThumb';
-
 import { StyledMovieInfo } from '../styles/StyledMovieInfo';
 
 const favoriteiteam = JSON.parse(localStorage.getItem('favorite') || '[]');
@@ -39,7 +38,9 @@ function MovieInfo({ movie }) {
           }
         ]
       })
-    } 
+    } else{
+      confirmAlert({title: 'You Have The Movie In Your Favorite'})
+    }
   };
 
   return (
