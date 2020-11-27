@@ -1,6 +1,8 @@
-import React  from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { IconButton } from '@material-ui/core';
+
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 
 import NoImage from '../images/no_image.jpg';
@@ -15,17 +17,17 @@ const favoriteiteam = JSON.parse(localStorage.getItem('favorite') || '[]');
 function MovieInfo({ movie }) {
 
   const favoriteAdd = (movie) => {
-		const dofoveriteAdd = favoriteiteam.find((item) => {
-			return item.id === movie.id;
-		});
-		if (!dofoveriteAdd) {
-			favoriteiteam.push(movie);
-			localStorage.setItem('favorite', JSON.stringify(favoriteiteam));
-			alert('Check your favorite list');
-		} else {
-			alert('You Have The movie ');
-		}
-	};
+    const dofoveriteAdd = favoriteiteam.find((item) => {
+      return item.id === movie.id;
+    });
+    if (!dofoveriteAdd) {
+      favoriteiteam.push(movie);
+      localStorage.setItem('favorite', JSON.stringify(favoriteiteam));
+      alert('Check your favorite list');
+    } else {
+      alert('You Have The movie ');
+    }
+  };
 
   return (
     <StyledMovieInfo backdrop={movie.backdrop_path}>
@@ -56,13 +58,12 @@ function MovieInfo({ movie }) {
               {movie.directors.map(element => (
                 <p key={element.credit_id}>{element.name}</p>
               ))}
-             
-            </div>
-            <IconButton onClick={()=>favoriteAdd(movie)} style={{ color: 'white', float: "right" }}>
-                  Add to My Favorite
-                
 
-                </IconButton>
+            </div>
+            <BottomNavigationAction 
+            icon={<FavoriteBorderIcon onClick={() => favoriteAdd(movie)} 
+            style={{ fontSize: 50, color: 'white' }} />}/>
+
           </div>
         </div>
       </div>

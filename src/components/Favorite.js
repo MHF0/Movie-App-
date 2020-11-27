@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import IconButton from '@material-ui/core';
-import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 
 
@@ -16,31 +16,34 @@ const Favorite = () => {
             const java = favoriteList.indexOf(sliceMovie);
             favoriteList.splice(java, 1);
             localStorage.setItem('favorite', JSON.stringify(favoriteList));
+            window.location.reload(true);
         }
     };
 
     return (
-        <div>
-            {JSON.parse(localStorage.getItem('favorite')).map((item) => (
-                <div key={item.id}>
-                    <div >
-                        <StyledFavorite>
-                            <img src={`https://image.tmdb.org/t/p/w185/${item.poster_path}`} alt={item.title} />
+        <StyledFavorite>
+            <div className="favoritelist">
+                {JSON.parse(localStorage.getItem('favorite')).map((item) => (
+                    <div key={item.id}>
+                        <div >
+
                             <div >
-
+                                <img src={`https://image.tmdb.org/t/p/w185/${item.poster_path}`} alt={item.title} />
+                                <div >
+                                    <BottomNavigationAction onClick={() => remove(item)}
+                                        icon={<DeleteForeverIcon style={{ fontSize: 50, color: 'black', width: "100%" }} />} />
+                                </div>
                             </div>
-                        </StyledFavorite>
-                        <IconButton  onClick={() => remove(item)}  fontSize="large">
-                            <DeleteOutlineIcon />
-                        </IconButton>
-                    </div>
-                    <div >
 
-                    </div>
-                </div>
-            ))}
-        </div>
 
+                        </div>
+                        <div >
+
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </StyledFavorite>
     );
 };
 Favorite.propTypes = {
