@@ -1,5 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import IconButton from '@material-ui/core';
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+
+
 
 import { StyledFavorite } from '../components/styles/StyledFavorite';
 
@@ -22,13 +26,13 @@ const Favorite = () => {
                     <div >
                         <StyledFavorite>
                             <img src={`https://image.tmdb.org/t/p/w185/${item.poster_path}`} alt={item.title} />
-                            <div>
-                                <button
-                                    onClick={() => remove(item)}
-                                > Remove from the Favorite
-							</button>
+                            <div >
+
                             </div>
                         </StyledFavorite>
+                        <IconButton  onClick={() => remove(item)}  fontSize="large">
+                            <DeleteOutlineIcon />
+                        </IconButton>
                     </div>
                     <div >
 
