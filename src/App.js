@@ -1,13 +1,13 @@
 import React from 'react';
 import { Router } from '@reach/router';
 
-import Header from './elements/Header';
-import Home from './Home';
-import Movie from './Movie';
-import NotFound from './NotFound';
-import Favorite from './Favorite';
+import Header from './components/elements/Header';
+import Home from './components/Home';
+import Movie from './components/Movie';
+import NotFound from './components/NotFound';
+import Favorite from './components/Favorite';
 
-import { GlobalStyle } from './styles/GlobalStyle';
+import { GlobalStyle } from './components/styles/GlobalStyle';
 
 
 

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
-import { confirmAlert } from 'react-confirm-alert'; 
+import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
 import NoImage from '../images/no_image.jpg';
@@ -22,15 +22,16 @@ function MovieInfo({ movie }) {
       return item.id === movie.id;
     });
     if (!dofoveriteAdd) {
-      favoriteiteam.push(movie);
-      localStorage.setItem('favorite', JSON.stringify(favoriteiteam));
       confirmAlert({
         title: 'Add to Favorite',
         message: 'Are you sure you want to add this movie ?',
         buttons: [
           {
             label: 'Yes',
-            onClick: () => ('Click Yes')
+            onClick: () => {
+              favoriteiteam.push(movie);
+              localStorage.setItem('favorite', JSON.stringify(favoriteiteam));
+            }
           },
           {
             label: 'No',
@@ -38,8 +39,8 @@ function MovieInfo({ movie }) {
           }
         ]
       })
-    } else{
-      confirmAlert({title: 'You Have The Movie In Your Favorite'})
+    } else {
+      confirmAlert({ title: 'You Have The Movie In Your Favorite' })
     }
   };
 

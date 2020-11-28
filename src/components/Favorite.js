@@ -14,7 +14,7 @@ const Favorite = () => {
             const java = favoriteList.indexOf(sliceMovie);
             favoriteList.splice(java, 1);
             localStorage.setItem('favorite', JSON.stringify(favoriteList));
-            window.location.reload(true);
+            window.location.reload(false);
         }
     };
 
