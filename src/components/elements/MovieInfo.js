@@ -22,6 +22,7 @@ function MovieInfo({ movie }) {
       return item.id === movie.id;
     });
     if (!dofoveriteAdd) {
+
       confirmAlert({
         title: 'Add to Favorite',
         message: 'Are you sure you want to add this movie ?',

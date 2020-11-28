@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import { Link } from '@reach/router';
@@ -7,21 +7,21 @@ import { StyledFavorite } from '../components/styles/StyledFavorite';
 
 
 const Favorite = () => {
-    const favoriteList = JSON.parse(localStorage.getItem('favorite'));
+    let [favoriteList, setFavoriteList] = useState([]);
+
+    favoriteList = JSON.parse(localStorage.getItem('favorite')) || [];
     const remove = (movie) => {
-        const sliceMovie = favoriteList.find((item) => item.id === movie.id);
-        if (sliceMovie) {
-            const java = favoriteList.indexOf(sliceMovie);
-            favoriteList.splice(java, 1);
-            localStorage.setItem('favorite', JSON.stringify(favoriteList));
-            window.location.reload(false);
+        const MovieFilter = favoriteList.filter((item) => item.id !== movie.id);
+
+        if (MovieFilter) {
+            localStorage.setItem('favorite', JSON.stringify(MovieFilter));
+            setFavoriteList(JSON.parse(localStorage.getItem('favorite') || '[]'));
         }
     };
-
     return (
         <StyledFavorite>
             <div className="favoritelist">
-                {JSON.parse(localStorage.getItem('favorite')).map((item) => (
+                {favoriteList.map((item) => (
                     <div key={item.id}>
                         <div >
 
