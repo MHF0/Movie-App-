@@ -76,6 +76,7 @@ body.react-confirm-alert-body-element {
   border-radius: 5px;
   font-size: 12px;
   cursor: pointer;
+  color: white;
 }
 
 @-webkit-keyframes react-confirm-alert-fadeIn {

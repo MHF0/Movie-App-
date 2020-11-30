@@ -13,6 +13,8 @@ const Favorite = () => {
     const remove = (movie) => {
         const MovieFilter = favoriteList.filter((item) => item.id !== movie.id);
 
+        window.location.reload(false)
+
         if (MovieFilter) {
             localStorage.setItem('favorite', JSON.stringify(MovieFilter));
             setFavoriteList(JSON.parse(localStorage.getItem('favorite') || '[]'));
