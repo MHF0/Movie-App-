@@ -50,8 +50,8 @@ const Home = () => {
   }
 
   if (error) return <div>Something went wrong ...</div>;
-  if (!movies[0]) return <Spinner />;
-
+  if (!movies[0]) return <h1>No Movies Matced</h1>; 
+  
   return (
     <>
       {!searchTerm && (
@@ -62,7 +62,7 @@ const Home = () => {
         />
       )}
       <SearchBar callback={searchMovies} />
-      <Grid header={searchTerm ? 'Search Result' : 'Popular Movies'}>
+      <Grid header={searchTerm ? 'Search Result' : 'Popular Movies' || "no movies"}>
         {movies.map(movie => (
           <MovieThumb
             key={movie.id}
