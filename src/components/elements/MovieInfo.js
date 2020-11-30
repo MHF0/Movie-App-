@@ -5,7 +5,7 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 import { confirmAlert } from 'react-confirm-alert';
-import 'react-confirm-alert/src/react-confirm-alert.css';
+import '../styles/react-confirm-alert.css';
 
 import NoImage from '../images/no_image.jpg';
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../../config';
@@ -41,7 +41,9 @@ function MovieInfo({ movie }) {
         ]
       })
     } else {
-      confirmAlert({ title: 'You Have The Movie In Your Favorite' })
+      confirmAlert({ title: 'You Have The Movie In Your Favorite',
+      buttons:[{label: 'Confirm'}]
+     })
     }
   };
 
